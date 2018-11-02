@@ -47,7 +47,7 @@ Hier kannst du dir den Shop einfach mal anschauen.
 Der Link folgt in kürze.
 
 # Sicherheit
-Beim Entwickeln des Webshops war mir die Sicherheit (vorallem im bezug auf Transaktionen) besonders Wichtig. Daher können nur angemeldete Transaktionen als getätigt gekennzeichnet und dadurch das Guthaben guts´geschrieben werden. Dabei wird die Zahlung beim Zahlungsanbieter erneut überprüft.
+Beim Entwickeln des Webshops war mir die Sicherheit (vorallem im bezug auf Transaktionen) besonders Wichtig. Daher können nur angemeldete Transaktionen als getätigt gekennzeichnet und dadurch das Guthaben gutgegeschrieben werden. Dabei wird die Zahlung beim Zahlungsanbieter erneut überprüft.
 Es war auch ein entsprechendes Anti-Leak bzw. ein System, mit dem man die heruntergeladenen Produkte einem Kunden zuordnen konnte, geplant und halb implementiert, welches ich hier nicht zur verfügung stelle (überlegt euch selber was).
 
 # Sonstiges
