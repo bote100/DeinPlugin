@@ -1,5 +1,5 @@
 # DeinPlugin
-Hier ist der ~unfertige~ sourcecode von meiner Implementation des DeinPlugin Shops für Pascal, da dieser den Shop nicht mehr abnimmt, stelle ich den aktuellen Fortschritt allen zur Verfügung, die sich den Code mal anschauen wollen.
+Hier ist der *unfertige* sourcecode von meiner Implementation des DeinPlugin Shops für Pascal, da dieser den Shop nicht mehr abnimmt, stelle ich den aktuellen Fortschritt allen zur Verfügung, die sich den Code mal anschauen wollen.
 
 # Disclaimer
 Ich bin kein professioneller WebEntwickler und arbeite im Normalfall auch nicht mit PHP, trotzdem habe ic versucht, mich an aktuelle Richtlinien aus anderen Programmiersprachen/Frameworks zu halten. 
