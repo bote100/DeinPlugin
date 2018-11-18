@@ -1,0 +1,25 @@
+################################################################################
+# MySQL Database Preperation                                                   #
+################################################################################
+CREATE TABLE `categories` (`name` VARCHAR(32) NOT NULL PRIMARY KEY, `description` TEXT, `show` BOOLEAN DEFAULT TRUE);
+CREATE TABLE `products` (`id` VARCHAR(36) NOT NULL PRIMARY KEY, `name` VARCHAR(64), `type` INT NOT NULL, `author` INT NOT NULL, `price` FLOAT NOT NULL, `featured` BOOLEAN DEFAULT TRUE, `show` BOOLEAN DEFAULT TRUE, `description` TEXT, `category` VARCHAR(32), `videoId` TEXT, `since` TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE `discount` (`product` VARCHAR(36) NOT NULL, `permission` VARCHAR(32) NOT NULL, `discount` FLOAT NOT NULL, `expires` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE `related` (`product` VARCHAR(36) NOT NULL, `related` VARCHAR(36));
+# ------------------------------------------------------------------------------
+CREATE TABLE `updates`(`product` VARCHAR(36) NOT NULL, `version` VARCHAR(32) NOT NULL, `text` TEXT NOT NULL, `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE `news`(`author` INT NOT NULL,`title` VARCHAR(64) NOT NULL, `text` TEXT NOT NULL, `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+# ------------------------------------------------------------------------------
+CREATE TABLE `user` (`id` INT NOT NULL UNIQUE AUTO_INCREMENT, `username` VARCHAR(32) UNIQUE NOT NULL, `balance` FLOAT, `password` VARCHAR(60) NOT NULL, `email` TEXT NOT NULL, `activation` VARCHAR(8));
+CREATE TABLE `user_tokens` (`user` INT NOT NULL, `action` VARCHAR(32) NOT NULL, `content` TEXT NOT NULL);
+CREATE TABLE `privileges` (`user` INT NOT NULL, `privilege` VARCHAR(32));
+CREATE TABLE `purchases` (`user` INT NOT NULL, `product` VARCHAR(36) NOT NULL, `option` INT DEFAULT 0, `price` FLOAT NOT NULL DEFAULT 0, `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE `transactions` (`provider` VARCHAR(16) NOT NULL, `amount` FLOAT NOT NULL, `transactionId` TEXT NOT NULL, `user` INT NOT NULL, `status` INT NOT NULL DEFAULT 0, `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+# ------------------------------------------------------------------------------
+CREATE TABLE `support_templates` (`template` VARCHAR(32) UNIQUE NOT NULL, `text` TEXT NOT NULL);
+CREATE TABLE `support_areas` (`area` VARCHAR(32) UNIQUE NOT NULL, `display` VARCHAR(128) NOT NULL);
+CREATE TABLE `support_contents` ( `ticket` VARCHAR(8) NOT NULL, `user` INT NOT NULL, `content` TEXT NOT NULL, `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE `support_tickets` (`id` VARCHAR(8) UNIQUE NOT NULL, `user` INT NOT NULL, `area` VARCHAR(32) NOT NULL, `subject` VARCHAR(64) NOT NULL, `status` INT NOT NULL DEFAULT 1, `timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+# ------------------------------------------------------------------------------
+INSERT INTO `support_areas` (`area`, `display`) VALUES ('others', 'Sonstiges');
+INSERT INTO `privileges` (`user`, `privilege`) VALUES ('1', 'acp'), ('1', 'customer'), ('1', 'products'), ('1', 'categories'), ('1', 'statistics'), ('1', 'tickets'), ('1', 'news');
+INSERT INTO `support_templates` (`template`, `text`) VALUES ('Späte antwort', 'Wir entschuldigen uns für die späte Antwort und alle eventuell deshalb entstandenen Unannehmlichkeiten.'), ('Eigene Anpassungen', 'Leider können wir bei angepassten Produkten und daraus entstandenen Problemen keinen Support leisten, da sich beim Anpassen von den Quelltexten viele Fehler einschleichen können, die nicht im ursprünglichen Produkt enthallten sind.'), ('Kein Produkt', 'Da es sich bei dem genannten Produkt leider nicht um ein Produkt aus unserem Shop handelt, können wir Ihnen damit leider nicht weiterhelfen.'), ('Kein Anpassservice', 'Es ist uns leider nicht m&ouml;glich Produkte für unsere Kunden anzupassen, deshalb verkaufen wir die Sourcecodes. Wir bitten um Ihr Verständnis.'), ('Bugmeldung (Dankeschön)', 'Vielen Dank für die Meldung des Fehlers, wir werden uns diesem schnellstmöglich annehmen.'), ('Bugmeldung (Log)', 'Unsere Produkte werden vor dem Verkauf ausfürlich getestet, trotzdem kann es zu Fehlern kommen. Wir bitten Sie, uns den Serverlog zu schicken, damit wir den Fehler im Produkt suchen können. Bitte schicken Sie uns einen best&auml;ndigen Link zum Log (z.B. Hastebin, keinen CloudNet Log).'), ('Bugmeldung (Kein Bug)', 'Bevor Produkte in unser Sortiment kommen, werden diese Ausführlich getestet, es ist uns nicht gelungen, den Fehler zu rekonstruieren. Warscheinlich kommt der Fehler aufgrund von einer falschen Konfiguration oder von fehlern bei der Anpassung zustande, wir bitten um Verständnis, dass wir bei solchen F&auml;llen nicht helfen können.'), ('CloudNet Support', 'Bei der Entwicklung unserer Plugins wird darauf geachtet, dass das Plugin möglichst universell einsetzbar ist. Unsere Plugins können mit CloudNet verwendet werden, es können jedoch kleine Anpassung nötig sein.');

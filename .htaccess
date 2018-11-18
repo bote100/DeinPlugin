@@ -1,0 +1,29 @@
+# ToDo
+#   - PayGol API
+#   - Produkte-ACP
+#   - Mails Versenden (Email-Bestätigen & PW zurücksetzen)
+#   ! PW-Ändern
+#   ! Recheck Payments Button
+
+
+################################################################################
+# Rewrites                                                                     #
+################################################################################
+RewriteEngine on
+
+# ---------------------------------------------------------------------------- #
+# More Complex Rewrites                                                        #
+# ---------------------------------------------------------------------------- #
+RewriteRule ^category/([0-9A-Za-z-_]+)(/?) index.php?page=category&category=$1
+RewriteRule ^product/([0-9A-Za-z-_]+)(/?) index.php?page=product&product=$1
+RewriteRule ^tickets/([0-9A-Za-z]+)(/?) index.php?page=tickets&ticket=$1
+RewriteRule ^download/([0-9A-Za-z]+)\.zip download.php?product=$1
+
+# ---------------------------------------------------------------------------- #
+# Simple Rewrites                                                              #
+# ---------------------------------------------------------------------------- #
+RewriteRule ^terms(/?) index.php?page=terms
+RewriteRule ^login(/?) index.php?page=login
+RewriteRule ^logout(/?) index.php?page=login&logout
+RewriteRule ^profile(/?) index.php?page=profile
+RewriteRule ^register(/?) index.php?page=register

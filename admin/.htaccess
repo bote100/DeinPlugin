@@ -1,0 +1,13 @@
+################################################################################
+# Rewrites                                                                     #
+################################################################################
+RewriteEngine on
+
+# ---------------------------------------------------------------------------- #
+# Rewrite-Rules                                                                #
+# ---------------------------------------------------------------------------- #
+RewriteRule ^ticket/([0-9A-Za-z-_]+)(/?) index.php?page=edit_ticket&ticket=$1
+RewriteRule ^shop/([0-9A-Za-z-_]+)(/?) index.php?path=shop&page=$1 [QSA]
+RewriteRule ^customer(/?) index.php?page=customer
+RewriteRule ^tickets(/?) index.php?page=tickets
+RewriteRule ^news(/?) index.php?page=news
