@@ -44,11 +44,14 @@ Hier kannst du dir den Shop einfach mal anschauen.
 * Benutzer: **Admin** Passwort: **test123**
 * Benutzer: **User**  Passwort: **demo**
 
-[Zu der Demoseite](https://shop.golgolex.fun)
+[Zu der Demoseite](http://shop.golgolex.fun)
 
 # Sicherheit
 Beim Entwickeln des Webshops war mir die Sicherheit (vorallem im bezug auf Transaktionen) besonders Wichtig. Daher können nur angemeldete Transaktionen als getätigt gekennzeichnet und dadurch das Guthaben gutgegeschrieben werden. Dabei wird die Zahlung beim Zahlungsanbieter erneut überprüft.
 Es war auch ein entsprechendes Anti-Leak bzw. ein System, mit dem man die heruntergeladenen Produkte einem Kunden zuordnen konnte, geplant und halb implementiert, welches ich hier nicht zur verfügung stelle (überlegt euch selber was).
+
+# Setup
+Um die Software benutzen zu können, müsst ihr im **assets**-ordner die config.sample.php zu config.php umbenennen und die angeforderten Werte eintragen. Um die Datenbank vorzubereiten befundet sich bei **assets/downloads** eine sql Datei, die die auszuführenden Querys um die Datenbankstruktur zu erstellen beinhaltet. Der erste Account der sich registriert erhält alle Berechtigungen.
 
 # Sonstiges
 Ich arbeite derzeit an einer besseren und vor allem (in meinen Augen) schöneren Shopsoftware. Über die Veröffentlichung dieser, mache ich mir zu gegebenem Zeitpunkt gedanken, falls ihr coole Ideen für diese haben solltet, teielt es mir gerne mit.
