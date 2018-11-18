@@ -44,7 +44,7 @@ Hier kannst du dir den Shop einfach mal anschauen.
 * Benutzer: **Admin** Passwort: **test123**
 * Benutzer: **User**  Passwort: **demo**
 
-Der Link folgt in kürze.
+[Zu der Demoseite](https://shop.golgolex.fun)
 
 # Sicherheit
 Beim Entwickeln des Webshops war mir die Sicherheit (vorallem im bezug auf Transaktionen) besonders Wichtig. Daher können nur angemeldete Transaktionen als getätigt gekennzeichnet und dadurch das Guthaben gutgegeschrieben werden. Dabei wird die Zahlung beim Zahlungsanbieter erneut überprüft.
